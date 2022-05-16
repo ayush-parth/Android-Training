@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.335" />
+        <entry key="app/src/main/res/drawable/cric_exchange_logo_svg.xml" value="0.229" />
+        <entry key="app/src/main/res/drawable/line_tablayout_bottom.xml" value="0.119" />
+        <entry key="app/src/main/res/drawable/line_tablayout_botton.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/match_card_divider.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/rectangle_4.xml" value="0.175" />
+        <entry key="app/src/main/res/drawable/rectangle_blue.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/rectangle_odd_against.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/rectangle_odd_favour.xml" value="0.1895" />
+        <entry key="app/src/main/res/drawable/splash_background.xml" value="0.229" />
+        <entry key="app/src/main/res/drawable/splash_scre.xml" value="0.229" />
+        <entry key="app/src/main/res/drawable/upcoming_match_arrow.xml" value="0.175" />
+        <entry key="app/src/main/res/font/poppins_medium.xml" value="0.11574074074074074" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/app_toolbar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/fragment_finished.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/fragment_main.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/fragment_match_list.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_upcoming.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/item_parent_card.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/match_details_card.xml" value="0.375" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

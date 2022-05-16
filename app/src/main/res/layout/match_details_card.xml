@@ -1,0 +1,246 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:cardCornerRadius="6dp"
+    app:cardBackgroundColor="#15222E">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginBottom="10dp">
+
+        <TextView
+            android:id="@+id/match_details_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="12dp"
+            android:fontFamily="@font/poppins_medium"
+            android:text="25th T20 at Sharjah International Ground"
+            android:textColor="#9FA3A7"
+            android:textSize="10sp" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:weightSum="5">
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="3.5"
+                android:orientation="vertical">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/team_1_image_view"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/img_1"/>
+                    <TextView
+                        android:id="@+id/team_1_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="SL"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:textColor="#CFD1D3"/>
+                    <TextView
+                        android:id="@+id/team_1_score_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="156-5"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:visibility="gone"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#CFD1D3"/>
+                    <TextView
+                        android:id="@+id/team_1_over_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="20.0"
+                        android:fontFamily="@font/poppins"
+                        android:visibility="gone"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="2sp"
+                        android:translationY="1.2sp"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="#CFD1D3"/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/team_2_image_view"
+                        android:layout_width="32dp"
+                        android:layout_height="32dp"
+                        android:src="@drawable/img_2"/>
+                    <TextView
+                        android:id="@+id/team_2_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="BAN"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:textSize="12dp"
+                        android:fontFamily="@font/poppins"
+                        android:textColor="#CFD1D3"/>
+                    <TextView
+                        android:id="@+id/team_2_score_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="156-5"
+                        android:visibility="gone"
+                        android:fontFamily="@font/poppins_semibold"
+                        android:layout_marginStart="8dp"
+                        android:gravity="center_vertical"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:textColor="#CFD1D3"/>
+                    <TextView
+                        android:id="@+id/team_2_over_tv"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        android:text="20.0"
+                        android:visibility="gone"
+                        android:fontFamily="@font/poppins"
+                        android:layout_marginStart="4dp"
+                        android:lineSpacingExtra="2sp"
+                        android:translationY="1.2sp"
+                        android:gravity="center_vertical"
+                        android:textSize="12sp"
+                        android:textColor="#CFD1D3"/>
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <View
+                android:id="@+id/match_card_"
+                android:layout_width="1dp"
+                android:layout_height="40dp"
+                android:background="@drawable/match_card_divider"
+                android:layout_gravity="center"/>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1.5"
+                android:gravity="center">
+
+                <TextView
+                    android:id="@+id/match_time_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/poppins"
+                    android:gravity="center"
+                    android:lineSpacingExtra="-4sp"
+                    android:text="7:30 PM"
+                    android:textColor="#CFD1D3"
+                    android:textSize="11dp" />
+
+                <TextView
+                    android:id="@+id/match_date_tv"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/match_time_tv"
+                    android:layout_marginTop="4dp"
+                    android:fontFamily="@font/poppins_semibold"
+                    android:gravity="center"
+                    android:lineSpacingExtra="-5sp"
+                    android:text="5 June"
+                    android:textColor="#9FA3A7"
+                    android:textFontWeight="600"
+                    android:textSize="16sp" />
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+        <View
+            android:id="@+id/line_843"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@drawable/match_card_divider"
+            android:alpha="0.7"
+            android:visibility="gone"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="12dp"/>
+
+        <RelativeLayout
+            android:id="@+id/odds_layout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="12dp"
+            android:visibility="gone"
+            android:layout_gravity="end">
+
+            <TextView
+                android:id="@+id/favour_team_name_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:alpha="0.8"
+                android:background="@drawable/rectangle_blue"
+                android:fontFamily="@font/poppins_semibold"
+                android:gravity="center"
+                android:lineSpacingExtra="-7sp"
+                android:paddingLeft="5dp"
+                android:paddingRight="5dp"
+                android:text="DC"
+                android:textColor="#FCFCFC"
+                android:textFontWeight="600"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/favour_odds_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_toRightOf="@id/favour_team_name_tv"
+                android:alpha="0.8"
+                android:background="@drawable/rectangle_odd_favour"
+                android:fontFamily="@font/rajdhani_semibold"
+                android:gravity="center"
+                android:lineSpacingExtra="-5sp"
+                android:text="98"
+                android:textColor="#FCFCFC"
+                android:textFontWeight="600"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/against_odds_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:layout_toEndOf="@id/favour_odds_tv"
+                android:alpha="0.8"
+                android:background="@drawable/rectangle_odd_against"
+                android:fontFamily="@font/rajdhani_semibold"
+                android:gravity="center"
+                android:lineSpacingExtra="-7sp"
+                android:text="99"
+                android:textColor="#FCFCFC"
+                android:textFontWeight="600"
+                android:textSize="14sp" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</androidx.cardview.widget.CardView>
