@@ -21,8 +21,9 @@ public class MainActivity extends AppCompatActivity {
 
     private TabLayout mainTabLayout;
     private ViewPager viewPager;
-    private MatchListFragment upcomingMatchFragment;
+    //private MatchListFragment upcomingMatchFragment;
     //private MatchListFragment finishedMatchFragment;
+    private RecyclerViewMatchListFragment upcomingMatchFragment;
     private RecyclerViewMatchListFragment finishedMatchFragment;
     private ArrayList<Fragment> fragmentList = new ArrayList<>();
 
@@ -93,8 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupViewPager(ViewPager viewPager){
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
-        upcomingMatchFragment = new MatchListFragment("https://mocki.io/v1/30786c0a-390e-41d5-9ad8-549ed26cba64",MatchType.UPCOMING);
+        //upcomingMatchFragment = new MatchListFragment("https://mocki.io/v1/30786c0a-390e-41d5-9ad8-549ed26cba64",MatchType.UPCOMING);
         //finishedMatchFragment = new MatchListFragment("https://mocki.io/v1/2389d44c-81aa-4e04-bd2e-b8c7e17572c0",MatchType.FINISHED);
+        upcomingMatchFragment = new RecyclerViewMatchListFragment(MatchType.UPCOMING,"https://mocki.io/v1/30786c0a-390e-41d5-9ad8-549ed26cba64");
         finishedMatchFragment = new RecyclerViewMatchListFragment(MatchType.FINISHED,
                 "https://mocki.io/v1/2389d44c-81aa-4e04-bd2e-b8c7e17572c0");
         viewPagerAdapter.addFragment(upcomingMatchFragment);
