@@ -9,38 +9,7 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/matchListRV"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_above="@id/more_match_tab_layout"/>
-
-    <RelativeLayout
-        android:id="@+id/more_match_tab_layout"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:visibility="visible"
-        android:clickable="true"
-        android:background="@drawable/rectangle_4"
-        android:layout_alignParentBottom="true">
-
-        <TextView
-            android:id="@+id/more_match_message_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="All Upcoming Matches"
-            android:layout_centerVertical="true"
-            android:layout_marginStart="16dp"
-            android:textColor="@color/primeText"
-            android:textSize="16dp"/>
-
-        <View
-            android:id="@+id/vector"
-            android:layout_width="7dp"
-            android:layout_height="12dp"
-            android:background="@drawable/upcoming_match_arrow"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:layout_marginEnd="16dp"/>
-    </RelativeLayout>
+        android:layout_height="match_parent"/>
 
 
 </RelativeLayout>

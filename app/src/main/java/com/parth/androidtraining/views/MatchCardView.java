@@ -52,6 +52,11 @@ public class MatchCardView extends CardView {
     private TextView matchDateTV;
     private View lineSeperatorForOddsLayout;
 
+    public MatchCardView(Context context) {
+        super(context);
+        //initView(context);
+    }
+
     public MatchCardView(Context context, MatchType matchType, JSONObject matchObject) {
         super(context);
         this.matchCardContext = context;
@@ -89,6 +94,13 @@ public class MatchCardView extends CardView {
             e.printStackTrace();
         }
         addView(myCardView);
+    }
+
+    public void populateMatchCardView(Context context, MatchType matchType, JSONObject matchObject) {
+        this.matchCardContext = context;
+        this.matchType = matchType;
+        this.matchObject = matchObject;
+        initView(context);
     }
 
     private void setMatchDetails(String matchDetails){

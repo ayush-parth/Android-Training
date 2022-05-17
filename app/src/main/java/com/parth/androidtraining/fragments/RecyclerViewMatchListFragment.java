@@ -6,13 +6,13 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.text.format.DateUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
@@ -25,24 +25,31 @@ import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.parth.androidtraining.R;
 import com.parth.androidtraining.adapter.MatchViewRecyclerAdapter;
+import com.parth.androidtraining.adapter.MultipleViewTypeAdapter;
+import com.parth.androidtraining.model.enums.MatchCardPopulateType;
 import com.parth.androidtraining.model.enums.MatchType;
 import com.parth.androidtraining.util.VolleyRequestQueue;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.UnsupportedEncodingException;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class RecyclerViewMatchListFragment extends Fragment {
 
     private RecyclerView matchListRecyclerView;
-    private TextView moreMatchMessageTV;
-    private RelativeLayout moreMatchTabLayout;
     private MatchType matchType;
     private String url;
+    private final SimpleDateFormat dateSDF = new SimpleDateFormat("MM/dd/yyyy");
+    private final SimpleDateFormat clubbedDateSDF = new SimpleDateFormat("EEE, d MMM");
+
 
     public RecyclerViewMatchListFragment(MatchType matchType, String url) {
-        // Required empty public constructor
         this.matchType = matchType;
         this.url = url;
     }
@@ -50,28 +57,10 @@ public class RecyclerViewMatchListFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
         View view =  inflater.inflate(R.layout.fragment_recycler_view_match_list, container, false);
-        moreMatchTabLayout = view.findViewById(R.id.more_match_tab_layout);
-        moreMatchMessageTV = view.findViewById(R.id.more_match_message_tv);
         matchListRecyclerView = view.findViewById(R.id.matchListRV);
-
-        String toastMessage = null;
-        if(matchType.equals(MatchType.UPCOMING)){
-            toastMessage = "Open All Upcoming Matches";
-            moreMatchMessageTV.setText("All Upcoming Matches");
-        }else{
-            toastMessage = "Open All Finished Matches";
-            moreMatchMessageTV.setText("All Finished Matches");
-        }
-
-        String finalToastMessage = toastMessage;
-        moreMatchTabLayout.setOnClickListener(v -> Toast.
-                makeText(getContext(),finalToastMessage,Toast.LENGTH_SHORT).show());
-
-        getUpcomingMatches(url);
-
         matchListRecyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        getUpcomingMatches(url);
 
         return view;
     }
@@ -142,7 +131,56 @@ public class RecyclerViewMatchListFragment extends Fragment {
     }
 
     private void populateViews(JSONArray response) {
-        MatchViewRecyclerAdapter matchViewRecyclerAdapter = new MatchViewRecyclerAdapter(getContext(),response,matchType);
-        matchListRecyclerView.setAdapter(matchViewRecyclerAdapter);
+        List<MatchCardPopulateType> matchCardPopulateTypes = convertJSONToListOfMatchCardPopulateType(response);
+        matchCardPopulateTypes.add(new MatchCardPopulateType(MatchCardPopulateType.END_TYPE,null,null));
+        MatchViewRecyclerAdapter matchViewRecyclerAdapter = new MatchViewRecyclerAdapter(getContext(),matchCardPopulateTypes
+                ,matchType);
+        MultipleViewTypeAdapter multipleViewTypeAdapter = new MultipleViewTypeAdapter(getContext(),
+                matchCardPopulateTypes,matchType);
+        matchListRecyclerView.setAdapter(multipleViewTypeAdapter);
+    }
+
+    private List<MatchCardPopulateType> convertJSONToListOfMatchCardPopulateType(JSONArray responseArray){
+        List<MatchCardPopulateType> matchCardPopulateTypes = new ArrayList<>();
+
+        for(int i=0;i<responseArray.length();i++){
+            try {
+                JSONObject clubbedMatchObject = responseArray.getJSONObject(i);
+                String clubedDate = clubbedMatchObject.getString("date");
+                matchCardPopulateTypes.add(new MatchCardPopulateType(MatchCardPopulateType.DATE_TYPE,
+                        null,getDayValue(clubedDate)));
+                JSONArray matchesOnSameDateArray = clubbedMatchObject.getJSONArray("m");
+                for(int j=0;j< matchesOnSameDateArray.length();j++){
+                    JSONObject matchObject = matchesOnSameDateArray.getJSONObject(j);
+                    matchCardPopulateTypes.add(new MatchCardPopulateType(MatchCardPopulateType.MATCH_TYPE,
+                            matchObject,null));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+
+        }
+        return matchCardPopulateTypes;
+    }
+
+    public String getDayValue(String dateString){
+        try
+        {
+            Date date= dateSDF.parse(dateString);
+            clubbedDateSDF.applyPattern("EEE, d MMMM");
+            String str = clubbedDateSDF.format(date);
+            if(DateUtils.isToday(date.getTime())){
+                return "Today"+str.substring(3);
+            }else if(DateUtils.isToday(date.getTime() - DateUtils.DAY_IN_MILLIS)){
+                return "Tomorrow"+str.substring(3);
+            }else{
+                return str;
+            }
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

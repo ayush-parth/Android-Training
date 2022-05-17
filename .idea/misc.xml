@@ -19,13 +19,15 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/app_toolbar.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/bottom_more_matches_view.xml" value="0.1" />
         <entry key="app/src/main/res/layout/clubbed_match_card.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_finished.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_main.xml" value="0.23324275362318841" />
         <entry key="app/src/main/res/layout/fragment_match_list.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/fragment_recycler_view_match_list.xml" value="0.2504528985507246" />
+        <entry key="app/src/main/res/layout/fragment_recycler_view_match_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_upcoming.xml" value="0.25" />
         <entry key="app/src/main/res/layout/item_parent_card.xml" value="0.23324275362318841" />
+        <entry key="app/src/main/res/layout/match_card_date.xml" value="0.2504528985507246" />
         <entry key="app/src/main/res/layout/match_details_card.xml" value="0.375" />
       </map>
     </option>
