@@ -11,8 +11,6 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.android.volley.Cache;
 import com.android.volley.NetworkResponse;
@@ -24,7 +22,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.parth.androidtraining.R;
-import com.parth.androidtraining.adapter.MatchViewRecyclerAdapter;
 import com.parth.androidtraining.adapter.MultipleViewTypeAdapter;
 import com.parth.androidtraining.model.enums.MatchCardPopulateType;
 import com.parth.androidtraining.model.enums.MatchType;
@@ -133,8 +130,6 @@ public class RecyclerViewMatchListFragment extends Fragment {
     private void populateViews(JSONArray response) {
         List<MatchCardPopulateType> matchCardPopulateTypes = convertJSONToListOfMatchCardPopulateType(response);
         matchCardPopulateTypes.add(new MatchCardPopulateType(MatchCardPopulateType.END_TYPE,null,null));
-        MatchViewRecyclerAdapter matchViewRecyclerAdapter = new MatchViewRecyclerAdapter(getContext(),matchCardPopulateTypes
-                ,matchType);
         MultipleViewTypeAdapter multipleViewTypeAdapter = new MultipleViewTypeAdapter(getContext(),
                 matchCardPopulateTypes,matchType);
         matchListRecyclerView.setAdapter(multipleViewTypeAdapter);
